@@ -17,4 +17,5 @@ Student should be able to explain what cellular automata are and describe how th
 
 Student should be able to correctly analyze the ‘Turing Completeness’ of Conway’s “Game of Life”
 
-*   
+*   Conway's game clearly can do the functionality of a Turing machine, it has conditional branching and would have enough memory to 
+    complete the calculations, and the data and the rules are very simple.
