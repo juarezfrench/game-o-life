@@ -98,8 +98,8 @@ const generateEmptyGrid = (col, row) => {
 }
 
 function App() {
-  const [numCol, setCols] = useState(55)
-  const [numRow, setRows] = useState(20)
+  const [numCol, setCols] = useState(25)
+  const [numRow, setRows] = useState(25)
   const [grid, setGrid] = useState(() => {
     return generateEmptyGrid(numCol, numRow)
   })
@@ -113,6 +113,7 @@ function App() {
   const [green, setGreen] = useState(false)
   const [color, setColor] = useState('black')
   const [running, setRunning] = useState(false)
+  const [generation, setGeneration] = useState(0)
 
   useEffect(() => {
     if(red === true){
@@ -201,9 +202,11 @@ function App() {
               gridCopy[i][k] = 0
             } else if (g[i][k] === 0 && neighbors === 3){
               gridCopy[i][k] = 1
+            
             }
           }
         }
+        setGeneration(PrevGeneration=> PrevGeneration+1)
       })
     })
     
@@ -223,6 +226,7 @@ function App() {
               if(!running){
                 runningRef.current = true
                 runSimulation()
+                
               }
             }}
           >
@@ -235,6 +239,7 @@ function App() {
                 setRunning(!running)
               }
               setGrid(generateEmptyGrid(numCol, numRow))
+              setGeneration(0)
             }}
           >
             clear
@@ -257,6 +262,12 @@ function App() {
         </div>
         <div className='header'>
           <h1>Conway's "Game of Life"</h1>
+          <h2>Generation: {generation}</h2>
+          <h3>Rules</h3>
+          <span className='rules'>*   If a cell stands by itself, it dies.  No man is an island
+*   If a cell has two or three neighbors, it's alive.
+*   If it has four or more neighbors, it dies (as in overpopulation).
+*   If a cell is dead, but has exactly three neighbors, those three neighbors will work to bring it back to life, and it will be live to the next generation.</span>
           <div style={{
             display: 'grid',
             gridTemplateColumns: `repeat(${numCol}, 20px)`
