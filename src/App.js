@@ -257,6 +257,11 @@ function App() {
         </div>
         <div className='header'>
           <h1>Conway's "Game of Life"</h1>
+          <h3>Rules</h3>
+          <span className='rules'>*   If a cell stands by itself, it dies.  No man is an island
+*   If a cell has two or three neighbors, it's alive.
+*   If it has four or more neighbors, it dies (as in overpopulation).
+*   If a cell is dead, but has exactly three neighbors, those three neighbors will work to bring it back to life, and it will be live to the next generation.</span>
           <div style={{
             display: 'grid',
             gridTemplateColumns: `repeat(${numCol}, 20px)`

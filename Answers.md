@@ -5,8 +5,7 @@ The basic rules are:
 *   If a cell stands by itself, it dies.  No man is an island
 *   If a cell has two or three neighbors, it's alive.
 *   If it has four or more neighbors, it dies (as in overpopulation).
-*   If a cell is dead, but has exactly three neighbors, those three neighbors will work to bring
-    it back to life, and it will be live to the next generation.
+*   If a cell is dead, but has exactly three neighbors, those three neighbors will work to bring it back to life, and it will be live to the next generation.
 
 Student should be able to explain what cellular automata are and describe how they are useful in real life
 
